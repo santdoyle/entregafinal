@@ -1,0 +1,56 @@
+<%- include('templates/header') %>
+    <%- include('templates/nav') %>
+
+<main>
+
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Album example</h1>
+            <p class="lead text-muted">Completa todos los campos para añadir un nuevo producto. </p>
+            <p class="lead text-muted">Solo pueden hacerlo administradores.</p>
+            <p>
+                <a href="/" class="btn btn-primary my-2">Ver Tienda</a>
+                <a href="/carrito/" class="btn btn-secondary my-2"> <i class="fas fa-shopping-cart"></i> Ver Carrito</a>
+            </p>
+        </div>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input class="form-control" type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Descripción del producto</label>
+                    <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Codigo</label>
+                    <input class="form-control" type="text" id="codigo" name="codigo" required>
+                </div>
+                <div class="form-group">
+                    <label>Url de imagen</label>
+                    <input class="form-control" type="text" id="imgUrl" name="imgUrl" required>
+                </div>
+                <div class="form-group">
+                    <label>Precio</label>
+                    <input class="form-control" type="text" id="precio" name="precio" required>
+                </div>
+                <div class="form-group">
+                    <label>Stock</label>
+                    <input class="form-control" type="text" id="stock" name="stock" required>
+                </div>
+                <button type="submit" id="cargar" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                
+        </div>
+        </div>
+    </div>
+
+    </main>
+
+    <%- include('templates/footer') %>

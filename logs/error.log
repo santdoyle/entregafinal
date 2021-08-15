@@ -1,0 +1,66 @@
+[2021-08-13T20:00:32.614] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:00:32.901] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:00:32.974] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:00:33.093] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:05:00.754] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:05:00.954] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:05:01.051] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:05:01.188] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:05:32.679] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:05:32.766] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:05:32.844] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-13T20:05:32.977] [ERROR] error - Error al conectar el servidor: Error: bind EADDRINUSE null:8080
+[2021-08-14T20:17:23.171] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd" (type string) at path "_id" for model "productos"
+[2021-08-14T20:40:07.013] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd" (type string) at path "_id" for model "productos"
+[2021-08-14T20:41:30.508] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "k,jh" (type string) at path "_id" for model "productos"
+[2021-08-14T20:41:41.182] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "k,jh" (type string) at path "_id" for model "productos"
+[2021-08-15T07:58:32.754] [ERROR] error - Error al listar productos: ReferenceError: listadoProductos is not defined
+[2021-08-15T07:58:41.292] [ERROR] error - Error al listar productos: ReferenceError: listadoProductos is not defined
+[2021-08-15T07:58:51.998] [ERROR] error - Error al listar productos: ReferenceError: listadoProductos is not defined
+[2021-08-15T07:58:56.607] [ERROR] error - Error al listar productos: ReferenceError: listadoProductos is not defined
+[2021-08-15T08:07:24.764] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "casco" (type string) at path "_id" for model "productos"
+[2021-08-15T08:09:42.255] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "prod" (type string) at path "_id" for model "productos"
+[2021-08-15T08:10:48.267] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "fgfgj" (type string) at path "_id" for model "productos"
+[2021-08-15T08:13:44.316] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "fgfgj" (type string) at path "_id" for model "productos"
+[2021-08-15T08:15:32.522] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "sdg" (type string) at path "_id" for model "productos"
+[2021-08-15T08:48:19.240] [ERROR] error - Error notificación de nueva compra: TypeError: Cannot read property 'nombre' of undefined
+[2021-08-15T08:48:19.243] [ERROR] error - Error notificación de nueva compra: TypeError: Cannot read property 'nombre' of undefined
+[2021-08-15T08:48:20.131] [ERROR] error - Error al enviar SMS: Error: Authenticate
+[2021-08-15T08:48:20.138] [ERROR] error - Error al enviar SMSa usuario: Error: Authenticate
+[2021-08-15T09:19:34.570] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token o in JSON at position 1
+[2021-08-15T09:25:12.127] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token o in JSON at position 1
+[2021-08-15T09:57:37.741] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token u in JSON at position 0
+[2021-08-15T09:58:43.455] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token u in JSON at position 0
+[2021-08-15T10:04:19.906] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token u in JSON at position 0
+[2021-08-15T10:09:54.476] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token u in JSON at position 0
+[2021-08-15T10:12:41.506] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token u in JSON at position 0
+[2021-08-15T10:16:22.494] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token u in JSON at position 0
+[2021-08-15T10:17:44.091] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token u in JSON at position 0
+[2021-08-15T10:19:17.801] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token u in JSON at position 0
+[2021-08-15T10:20:03.918] [ERROR] error - Error notificación de nueva compra: SyntaxError: Unexpected token u in JSON at position 0
+[2021-08-15T10:26:45.021] [ERROR] error - Error notificación de nueva compra: TypeError: Cannot read property 'producto' of undefined
+[2021-08-15T10:26:45.967] [ERROR] error - Error al crear ordenTypeError: Cannot read property 'producto' of undefined
+[2021-08-15T10:35:19.509] [ERROR] error - Error al enviar SMS: Error: Authenticate
+[2021-08-15T10:35:19.530] [ERROR] error - Error al enviar SMSa usuario: Error: Authenticate
+[2021-08-15T10:36:11.063] [ERROR] error - Error al enviar SMSa usuario: Error: Authenticate
+[2021-08-15T10:36:11.083] [ERROR] error - Error al enviar SMS: Error: Authenticate
+[2021-08-15T11:32:59.942] [ERROR] error - Error al crear ordenReferenceError: notificaciones is not defined
+[2021-08-15T11:56:38.068] [ERROR] error - Error al crear orden - Controller - ReferenceError: getOrder is not defined
+[2021-08-15T12:58:41.425] [ERROR] error - Error en nuevo registro: "nombre" length must be at least 5 characters long
+[2021-08-15T13:05:33.764] [ERROR] error - Error en nuevo registro: "nombre" length must be at least 5 characters long
+[2021-08-15T13:06:16.010] [ERROR] error - Error en nuevo registro: "apellido" length must be at least 6 characters long
+[2021-08-15T13:06:56.670] [ERROR] error - Error en nuevo registro: "caracteristica" is not allowed
+[2021-08-15T13:07:40.236] [ERROR] error - Error al enviar SMS: Error: No recipients defined
+[2021-08-15T14:39:13.963] [ERROR] error - Error al enviar SMS: Error: No recipients defined
+[2021-08-15T14:50:18.630] [ERROR] error - Error al enviar SMS: Error: No recipients defined
+[2021-08-15T15:02:36.703] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:04:05.442] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:04:51.485] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:05:21.531] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:05:44.294] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:05:54.459] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:05:55.555] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:05:55.871] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:09:10.565] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:11:06.667] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-15T15:12:30.948] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.

@@ -1,0 +1,65 @@
+<%- include('templates/header') %>
+    
+  <%- include('templates/nav')%>
+
+  <main>
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5" id="encabezado">
+        
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light" id="titulo">Tienda online</h1>
+          <div id="desc">
+            <p class="lead text-muted" >Tienda online de productos deportivos.</p>
+              <div class="d-inline">
+                <input type="text" id="buscar" name="buscar" class="form-control busqueda" placeholder="Buscar por codigo o nombre">
+                <button type="submit" id="botonBuscar" class="btn btn-primary">Buscar</button>
+              </div>
+            
+          </div>
+          
+        </div>
+        
+      
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container" id="contenedor">
+        <div style="width: 10%; margin-bottom: 20px;">
+          <select class="form-select" id="filtro">
+            <option selected>Ordenar por:</option>
+            <option value="precio">Precio</option>
+            <option value="stock">Stock</option>
+          </select>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="producto">
+          <% if(data.msj) { %>
+            <h4><%= data.msj %></h4>
+          <% }else { %> 
+            <% for(let element of data){ %>
+              
+                <div class="card shadow-sm" id="tarjeta">
+                  <img src="<%= element.imgUrl %>">
+                  <div class="card-body">
+                    <h2><%= element.nombre %></h2>
+                    <small id="idProducto"><%= element.precio %></small>
+                    <p class="card-text"><%= element.descripcion %></p>
+                      <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                          <a href="/productos/listar/<%= element.id %>" id="verProducto" class="btn btn-sm btn-outline-secondary">Ver</a>
+                          </div>
+                          <small class="text-muted">Agregar al carrito</small>
+                      </div>
+                  </div>
+                </div>
+              
+            <% } %>
+          <% } %>    
+        </div>       
+      </div>
+    </div>
+
+  </main>
+
+<%- include('templates/footer') %>

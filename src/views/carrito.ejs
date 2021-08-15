@@ -1,0 +1,54 @@
+<%- include('templates/header') %>
+    <%- include('templates/nav') %>
+<main>
+
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Tu carrito</h1>
+            
+        </div>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+                <div class="card shopping-cart">
+                    <div class="card-header bg-dark text-light">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        Tu carrito
+                            <a href="/" class="btn btn-outline-info btn-sm pull-right" style="float: right;">Continuar comprando</a>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="card-body" >
+                        <!-- Lista de productos -->
+                        <div class="row" id="producto">
+
+                            <% if(msj){ %>
+                                <h5><%= msj%></h5>
+                            <% } %>
+                        </div>
+                        <hr>
+                        <!-- END lista de productos -->
+
+                        <div class="pull-right" style="float: right;">
+                            <button class="btn btn-primary pull-right" id="comprar">
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        
+                        <div class="pull-right" style="margin: 10px">
+                            <div class="pull-right" style="margin: 5px">
+                                Precio total: <b>-</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    </main>
+    <%- include('templates/footer') %>

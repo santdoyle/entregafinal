@@ -1,0 +1,76 @@
+<%- include('templates/header') %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a href="/" class="navbar-brand d-flex align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <strong>Tienda</strong>
+    </a>
+  </div>  
+</nav>
+  <main>
+
+        <section class="py-5  container">
+          <div class="row py-lg-5" style="background: #f9f9f9">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h1 class="fw-light">Registrarse</h1>
+              <% if(error.length > 0){ %>
+                <div class="alert alert-danger">
+                  <%- error[0] %>
+                </div>
+              <% } %>
+                <form method="POST" action="/setRegistro">
+                    <div class="form-group mt-2 row">
+                      <div class="col">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu Nombre">
+                      </div>
+                      <div class="col">
+                        <label class="form-label">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Tu apellido">
+                      </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Tu email">
+                    </div>
+                  
+                    <div class="form-group mt-2 row">
+                      <div class="col-3">
+                        <label class="form-label">Caracteristica</label>
+                        <input type="tel" id="caracteristica" name="caracteristica" class="form-control" placeholder="Ej:2284">
+                      </div>
+                      <div class="col">
+                        <label class="form-label">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Tu teléfono">
+                      </div>
+                        
+                    </div>
+
+                    <div class="form-group mt-2 row">
+                      <div class="col">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="passwordRegistro" name="passwordRegistro" class="form-control" placeholder="Tu Password">
+                      </div>
+                      <div class="col">
+                        <label class="form-label">Repetir Password</label>
+                        <input type="password" id="repetPassword" name="repetPassword" class="form-control" placeholder="Password nuevamente">
+                      </div>
+                      
+                      <div id="passwordAlert"></div>
+                    </div>
+                    <div class="form-group mt-2" id="mostrarBoton">
+                        
+                    </div>
+                    <div class="mt-5">
+                      ¿Ya tenés cuenta?
+                      <a href="/login" >Iniciar sesion</a>
+                    </div>
+                    
+                </form>
+            </div>
+          </div>
+        </section>
+      
+</main>    
+
+    <%- include('templates/footer')%>     
