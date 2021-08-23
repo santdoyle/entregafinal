@@ -31,10 +31,15 @@ routerLogin.post('/setLogin', (request, response, next) =>{
                 const body = { _id: user._id, email: user.email }
         
                 const token = jwt.sign({ user: body }, 'top_secret')
-                
-                response.redirect(`/?secret_token=${token}`)
+                response.header('Access-Control-Expose-Headers', 'auth-token')
+                response.header('auth-token', token)
+                response.header('test', 'otro')
+                response.set({
+                    Authorization: `Baerer ${token}`
+                })
+                //response.redirect(`/?secret_token=${token}`)
                 //response.header({'Authorization':`bearer ${token}`})
-               //response.json('test')
+                response.redirect('/')
 
             })
         }catch(e) {

@@ -44,7 +44,7 @@ App.use(session({
 }))
 App.use(passport.initialize())
 App.use(passport.session())
-App.use(cors())
+App.use(cors({ exposedHeaders: 'auth-token', allowedHeaders: 'auth-token' }))
 /**
  * Rutas
  */
@@ -62,7 +62,7 @@ App.set('views', path.join(__dirname + '/src/views'))
 App.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization, auth-token');
     next();
 });
 

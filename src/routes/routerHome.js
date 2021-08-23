@@ -9,12 +9,11 @@ const authorized = require('../auth/isAuthorized')
 
 routerHome.get('/', authorized, async (request, response) => {
     try{
-        const token = request.query.secret_token
                 
         const productos = new Productos()
         const getAll = await productos.listarTodos()
         
-        request.headers.authorization =`Bearer ${token}`
+        //request.headers.authorization =`Bearer ${token}`
         response.render('index', {
             data: getAll,
             token: token

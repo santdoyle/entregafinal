@@ -3,7 +3,7 @@ const path = require('path')
 const passport = require('passport')
 const Productos = require('../controllers/controllerProductos.js')
 const routerProductos = express.Router()
-const authenticate = require('../auth/isAuthorized')
+const authorized = require('../auth/isAuthorized')
 const Loggers = require('../utils/logsConfig')
 const mongoose = require('mongoose')
 
@@ -14,7 +14,7 @@ let carritoCompras = []
 const productos = new Productos()
 
 //Listar todos los productos
-routerProductos.get('/listar', async (request, response, next) => {
+routerProductos.get('/listar', authorized, async (request, response, next) => {
     try{            
 
         const getAll = await productos.listarTodos()
@@ -32,7 +32,7 @@ routerProductos.get('/listar', async (request, response, next) => {
 })
 
 //Listar producto por ID
-routerProductos.get('/listar/:id', async (request, response) => {
+routerProductos.get('/listar/:id', authorized, async (request, response) => {
     try {
         const idValido = mongoose.Types.ObjectId.isValid(request.params.id);
         
@@ -55,7 +55,7 @@ routerProductos.get('/listar/:id', async (request, response) => {
 })
 
 //Listar por categoria
-routerProductos.get('/categoria/:categoria', async (request, response) =>{
+routerProductos.get('/categoria/:categoria', authorized, async (request, response) =>{
     try {
 
         const {categoria} = request.params
@@ -74,7 +74,7 @@ routerProductos.get('/categoria/:categoria', async (request, response) =>{
 
 
 /*Vista publicar producto*/
-routerProductos.get('/publicar', authenticate, (request, response) => {
+routerProductos.get('/publicar', authorized, (request, response) => {
 
     response.render('publicarProducto')
 })
@@ -107,7 +107,7 @@ routerProductos.post('/agregar', (request, response, next) => {
     
 })
 
-routerProductos.get('/editar/:id', async (request, response) => {
+routerProductos.get('/editar/:id', authorized, async (request, response) => {
     try {
         const item = await productos.listarProductosPorID(request.params.id)
 
@@ -123,7 +123,7 @@ routerProductos.get('/editar/:id', async (request, response) => {
 })
 
 //Actualizar producto por ID
-routerProductos.put('/actualizar/:id', async (request, response, next) => {
+routerProductos.put('/actualizar/:id', authorized, async (request, response, next) => {
     
     try {
         if(administrador === true){
@@ -151,7 +151,7 @@ routerProductos.put('/actualizar/:id', async (request, response, next) => {
 
 
 //Eliminar producto por ID
-routerProductos.delete('/borrar/:id', (request, response, next) => {
+routerProductos.delete('/borrar/:id', authorized, (request, response, next) => {
     
     try {
         if(administrador === true){
@@ -181,7 +181,7 @@ routerProductos.delete('/borrar/:id', (request, response, next) => {
 })
 
 
-routerProductos.get('/buscar/:key', async (request, response) => {
+routerProductos.get('/buscar/:key', authorized, async (request, response) => {
     const {key} = request.params
     try {
         const item = await productos.buscarPor(key)
@@ -197,7 +197,7 @@ routerProductos.get('/buscar/:key', async (request, response) => {
 })
 
 
-routerProductos.get('/ordenar/:key', async (request, response) => {
+routerProductos.get('/ordenar/:key', authorized, async (request, response) => {
     const {key} = request.params
 
     try {
