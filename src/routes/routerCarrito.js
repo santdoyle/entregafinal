@@ -1,7 +1,7 @@
-const express = require('express');
+const routerCarrito = require('express').Router();
 const Carrito = require('../controllers/controllerCarrito.js');
 const Ordenes = require('../controllers/controllerOrdenes')
-const routerCarrito = express.Router()
+const Loggers = require('../utils/logsConfig')
 
 /*
     * Endpoint Carrito
@@ -15,38 +15,36 @@ routerCarrito.get('/', (request, response) => {
     })
 })
 
-routerCarrito.get('/listar', (request, response, next) => {
+routerCarrito.get('/listar', async (request, response, next) => {
     try {
-        const getProductos = carrito.listarCarrito()
+        const getProductos = await carrito.listarCarrito()
 
-        getProductos.then(resp => {
-            if(resp.length > 0){
-                response.json(resp)
+            if(getProductos.length > 0){
+                response.json(getProductos)
             }else{
                 response.json({msj: 'No hay productos en el carro'})
             }
-        })
 
-    } catch (error) {
-        response.json({msj: `Ha ocurrido un error: ${error}`})
+        }catch (error) {
+            Loggers.logError.error('Error al listar productos - Router - ' + Error)
+            response.json({msj: `Ha ocurrido un error: ${error}`})
     }
 })
 
 //Cargar productos al carrito
 let idCarrito = 0
-routerCarrito.post('/agregar', (request, response, next) => {
+routerCarrito.post('/agregar', async (request, response, next) => {
     try {
         const producto = request.body.id
         const user = request.session.passport.user
 
-        const agregarAlCarro = carrito.agregarAlCarrito(producto, user)
+        const agregarAlCarro = await carrito.agregarAlCarrito(producto, user)
 
-        agregarAlCarro.then(resp =>{
-            response.json(resp)
-        })
+        response.json(agregarAlCarro)
         
     } catch (error) {
-        response.json({msj: `Ha ocurrido un error: ${error}`})
+        Loggers.logError.error('Error al agregar un producto - Router - ' + Error)
+        response.json({msj: `Ocurrio un error al añadir el producto`})
     }
     
 })
@@ -66,7 +64,8 @@ routerCarrito.delete('/borrar/:id', (request, response, next) => {
         }
     
     } catch (error) {
-        response.json({msj: `Ha ocurrido un error: ${error}`})
+        Loggers.logError.error('Error al borrar un producto')
+        response.json({msj: `Ocurrio un error al eliminar el producto`})
     }
     
 })
@@ -82,6 +81,7 @@ routerCarrito.post('/comprar', async (request, response) => {
     
     const nuevaCompra = await orden.nuevaOrden(compra)
     const limpiar = carrito.limpiarCarro()
+    
     response.json({id: nuevaCompra._id})
 })
 

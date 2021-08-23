@@ -37,19 +37,19 @@
           <% if(data.msj) { %>
             <h4><%= data.msj %></h4>
           <% }else { %> 
+
             <% for(let element of data){ %>
               
                 <div class="card shadow-sm" id="tarjeta">
                   <img src="<%= element.imgUrl %>">
                   <div class="card-body">
                     <h2><%= element.nombre %></h2>
-                    <small id="idProducto"><%= element.precio %></small>
+                    <span class="precio" id="idProducto">$<%= element.precio %></span>
                     <p class="card-text"><%= element.descripcion %></p>
                       <div class="d-flex justify-content-between align-items-center">
-                          <div class="btn-group">
-                          <a href="/productos/listar/<%= element.id %>" id="verProducto" class="btn btn-sm btn-outline-secondary">Ver</a>
-                          </div>
-                          <small class="text-muted">Agregar al carrito</small>
+                            <small id="categoria" style="padding: 10px 0">Categoría: <a href="productos/categoria/<%= element.categoria %>"><%= element.categoria %></a></small>
+
+                            <a href="/productos/listar/<%= element.id %>" id="verProducto" class="btn btn-sm btn-outline-secondary">Ver</a>
                       </div>
                   </div>
                 </div>

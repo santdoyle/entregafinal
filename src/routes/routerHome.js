@@ -3,23 +3,27 @@ const path = require('path')
 const Productos = require('../controllers/controllerProductos.js')
 //const listado = require('./routerProductos.js').listadoProductos
 const routerHome = express.Router()
+const Loggers = require('../utils/logsConfig')
+const passport = require('passport')
 const authorized = require('../auth/isAuthorized')
 
-routerHome.get('/', authorized, (request, response) => {
-    try{            
+routerHome.get('/', authorized, async (request, response) => {
+    try{
+        const token = request.query.secret_token
+                
         const productos = new Productos()
-        const getAll = productos.listarTodos()
-
-        getAll.then(resp => {
-            response.render('index', {data: resp})
+        const getAll = await productos.listarTodos()
+        
+        request.headers.authorization =`Bearer ${token}`
+        response.render('index', {
+            data: getAll,
+            token: token
         })
         
     } catch (error) {
-        console.log(error)
+        Loggers.logError.error('Error en home - Router - ' + error)
         error = {msj: `Ha ocurrido un error ${error}`}
-        
         response.json(error)
-
     }
 })
 

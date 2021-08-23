@@ -25,7 +25,7 @@ class Productos{
 
             return listaDeProductos
         } catch (error) {
-            Loggers.logError.error(`Error al buscar producto por id ${error}`)
+            Loggers.logError.error(`Error al buscar producto por id - controller - ${error}`)
         }
         
     }
@@ -40,7 +40,8 @@ class Productos{
             codigo: data.codigo,
             imgUrl: data.imgUrl,
             precio: data.precio,
-            stock: data.stock
+            stock: data.stock,
+            categoria: data.categoria
         }
         
         const listaDeProductos = db.addOne(producto)
@@ -63,6 +64,12 @@ class Productos{
         const listaDeProductos = db.deleteOne(id)
             
         return Promise.resolve(listaDeProductos)
+    }
+
+    buscarPorCategoria(categoria){
+        const productosCategoria = db.getByCategory(categoria)
+
+        return productosCategoria
     }
 
     async buscarPor(key){

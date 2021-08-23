@@ -24,6 +24,7 @@ class Carrito{
                 }else{
                     Loggers.logInfo.info('Carrito guardado correctamente')
                 }
+                
             })
 
             return save

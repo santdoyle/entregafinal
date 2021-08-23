@@ -35,7 +35,6 @@ class CarritoController{
             return borrar
         } catch (error) {
             Loggers.logError.error(`Error al borrar producto del carrito: ${error}`)
-
         }
         
     }
@@ -43,6 +42,8 @@ class CarritoController{
     async limpiarCarro(){
         try {
             const clean = await CarritoDb.cleanCart()
+
+            return clean
         } catch (error) {
             Loggers.logError.error(`Error al limpiar carrito: ${error}`)
         }

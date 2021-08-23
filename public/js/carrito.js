@@ -12,6 +12,11 @@ if(window.location.pathname == '/carrito/'){
             resp.forEach(el => {
                 const prod = JSON.parse(el.producto)
 
+                const load = document.getElementById('loading')
+                const div = document.createElement('div')
+                div.classList.add('row')
+                div.classList.add('resumenCarrito')
+                
                 const resumen = `<!-- PRODUCT -->
                                         <div class="col-12 col-sm-12 col-md-2 text-center">
                                                 <img class="img-responsive" src="${prod.imgUrl}" alt="prewiew" width="120" height="80">
@@ -28,7 +33,7 @@ if(window.location.pathname == '/carrito/'){
                                             </div>
                                             <div class="col-4 col-sm-4 col-md-4">
                                                 <div class="quantity">
-                                                    <input type="text" id="cantidad" value="0" class="qty"
+                                                    <input type="text" id="cantidad" value="1" class="qty"
                                                         size="2">
                                                 </div>
                                             </div>
@@ -39,8 +44,9 @@ if(window.location.pathname == '/carrito/'){
                                             </div>
                                         </div>
                                     <!-- END PRODUCT -->`
-                    producto.innerHTML = resumen 
-
+                    div.innerHTML = resumen                
+                    producto.append(div)
+                    load.remove()
 
                     const eliminar = document.getElementById('eliminar')
 

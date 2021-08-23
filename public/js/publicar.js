@@ -13,6 +13,8 @@ if(window.location.pathname == '/productos/publicar'){
         const imgUrl = document.getElementById('imgUrl').value
         const precio = document.getElementById('precio').value
         const stock = document.getElementById('stock').value
+        const categoria = document.getElementById('categoria').value
+
     
         if(nombre == "" || descripcion == "" || codigo == "" || imgUrl == "" || precio == "" || stock == ""){
            
@@ -25,10 +27,10 @@ if(window.location.pathname == '/productos/publicar'){
                 codigo: codigo,
                 imgUrl: imgUrl,
                 precio: precio,
-                stock: stock
+                stock: stock,
+                categoria: categoria
             }
-            
-            fetch('/productos/agregar', {
+            fetch(`/productos/agregar`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -39,6 +41,7 @@ if(window.location.pathname == '/productos/publicar'){
                 )
             })
             .then(resp => resp.json())
+            .catch(e => console.log(e))
         
             window.location.href = '/'
         }

@@ -64,3 +64,70 @@
 [2021-08-15T15:09:10.565] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
 [2021-08-15T15:11:06.667] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
 [2021-08-15T15:12:30.948] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-18T12:28:06.320] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-18T17:06:55.609] [ERROR] error - Error al recuperar mensaje - Controller - ReferenceError: user is not defined
+[2021-08-18T20:27:22.675] [ERROR] error - Error al guardar mensaje - Model - ValidationError: mensaje: Path `mensaje` is required.
+[2021-08-19T10:48:50.654] [ERROR] error - Error al recuperar mensajes - model - ObjectParameterError: Parameter "filter" to find() must be an object, got [object Object],[object Object]
+[2021-08-19T10:48:56.609] [ERROR] error - Error al recuperar mensajes - model - ObjectParameterError: Parameter "filter" to find() must be an object, got [object Object],[object Object]
+[2021-08-19T10:48:59.485] [ERROR] error - Error al recuperar mensajes - model - ObjectParameterError: Parameter "filter" to find() must be an object, got [object Object],[object Object]
+[2021-08-19T10:49:04.668] [ERROR] error - Error al recuperar mensajes - model - ObjectParameterError: Parameter "filter" to find() must be an object, got [object Object],[object Object]
+[2021-08-19T12:39:44.630] [ERROR] error - Error al guardar mensaje - Model - ValidationError: para: Path `para` is required., paraID: Path `paraID` is required.
+[2021-08-19T12:42:04.595] [ERROR] error - Error al guardar mensaje - Model - ValidationError: para: Path `para` is required., paraID: Path `paraID` is required.
+[2021-08-19T12:58:08.632] [ERROR] error - Error al guardar mensaje - Model - ValidationError: paraID: Path `paraID` is required.
+[2021-08-19T13:13:08.675] [ERROR] error - Error al guardar mensaje - Model - ValidationError: paraID: Path `paraID` is required.
+[2021-08-19T13:41:45.833] [ERROR] error - Error al guardar mensaje - Model - ValidationError: paraID: Path `paraID` is required.
+[2021-08-19T19:09:37.053] [ERROR] error - Error al recuperar mensajes - model - Error: Query filter must be an object, got an array 
+[2021-08-19T19:09:42.761] [ERROR] error - Error al recuperar mensajes - model - Error: Query filter must be an object, got an array 
+[2021-08-19T19:09:47.933] [ERROR] error - Error al recuperar mensajes - model - Error: Query filter must be an object, got an array 
+[2021-08-19T19:21:31.323] [ERROR] error - Error al recuperar mensajes - model - ReferenceError: mensajesEmisor is not defined
+[2021-08-19T19:22:54.762] [ERROR] error - Error al recuperar mensajes - model - ReferenceError: mensajesEmisor is not defined
+[2021-08-19T19:23:01.171] [ERROR] error - Error al recuperar mensajes - model - ReferenceError: mensajesEmisor is not defined
+[2021-08-19T19:23:05.641] [ERROR] error - Error al recuperar mensajes - model - ReferenceError: mensajesEmisor is not defined
+[2021-08-19T19:35:06.326] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-19T20:18:04.741] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-19T20:19:44.098] [ERROR] error - Error en socket.on - Get MensajesTypeError: Cannot read property 'length' of undefined
+[2021-08-19T21:13:02.075] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required., paraID: Path `paraID` is required.
+[2021-08-19T21:36:38.267] [ERROR] error - Error al enviar SMSa usuario: Error: Authenticate
+[2021-08-19T21:36:38.341] [ERROR] error - Error al enviar SMS: Error: Authenticate
+[2021-08-19T21:37:33.987] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required., paraID: Path `paraID` is required.
+[2021-08-19T21:41:25.136] [ERROR] error - Error al enviar SMS: Error: Authenticate
+[2021-08-19T21:41:25.139] [ERROR] error - Error al enviar SMSa usuario: Error: Authenticate
+[2021-08-19T22:19:28.799] [ERROR] error - Error al enviar SMSa usuario: Error: Authenticate
+[2021-08-19T22:19:28.808] [ERROR] error - Error al enviar SMS: Error: Authenticate
+[2021-08-19T22:42:36.934] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:02:48.080] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:03:52.297] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:09:05.139] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:10:42.380] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:11:11.823] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:13:00.623] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:13:00.627] [ERROR] error - Error al buscar producto por id Error: Error al obtener el productoCastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:15:31.266] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:15:31.271] [ERROR] error - Error al buscar producto por id Error: Error al obtener el productoCastError: Cast to ObjectId failed for value "deportes" (type string) at path "_id" for model "productos"
+[2021-08-19T23:48:20.349] [ERROR] error - Error al enviar SMS: Error: Authenticate
+[2021-08-19T23:48:20.381] [ERROR] error - Error al enviar SMSa usuario: Error: Authenticate
+[2021-08-19T23:50:28.017] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-20T00:17:34.326] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-20T00:36:53.861] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-20T00:37:04.625] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-20T11:09:16.392] [ERROR] error - Error al enviar SMS: Error: Authenticate
+[2021-08-20T11:09:16.431] [ERROR] error - Error al enviar SMSa usuario: Error: Authenticate
+[2021-08-20T11:43:04.309] [ERROR] error - Error al enviar SMSa usuario: Error: Authenticate
+[2021-08-20T11:43:04.316] [ERROR] error - Error al enviar SMS: Error: Authenticate
+[2021-08-20T14:02:20.530] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required., paraID: Path `paraID` is required.
+[2021-08-20T18:37:10.249] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd123" (type string) at path "_id" for model "productos"
+[2021-08-20T18:37:10.256] [ERROR] error - Error al buscar producto por id Error: Error al obtener el productoCastError: Cast to ObjectId failed for value "asd123" (type string) at path "_id" for model "productos"
+[2021-08-20T18:40:39.505] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd123" (type string) at path "_id" for model "productos"
+[2021-08-20T18:40:39.515] [ERROR] error - Error al buscar producto por id Error: Error al obtener el productoCastError: Cast to ObjectId failed for value "asd123" (type string) at path "_id" for model "productos"
+[2021-08-20T18:42:30.050] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd123" (type string) at path "_id" for model "productos"
+[2021-08-20T18:42:30.055] [ERROR] error - Error al buscar producto por id Error: Error al obtener el productoCastError: Cast to ObjectId failed for value "asd123" (type string) at path "_id" for model "productos"
+[2021-08-20T18:44:46.587] [ERROR] error - Error al buscar producto por ID - model - : CastError: Cast to ObjectId failed for value "asd123" (type string) at path "_id" for model "productos"
+[2021-08-20T18:44:46.593] [ERROR] error - Error al buscar producto por id - controller - Error: Error al obtener el productoCastError: Cast to ObjectId failed for value "asd123" (type string) at path "_id" for model "productos"
+[2021-08-20T18:59:23.903] [ERROR] error - Error al listar por id - Router
+[2021-08-22T09:25:23.823] [ERROR] error - Error en home - Router - ReferenceError: req is not defined
+[2021-08-22T09:49:50.684] [ERROR] error - Error en login Error: Expected "payload" to be a plain object.
+[2021-08-22T10:38:39.440] [ERROR] error - Error en login Error: Expected "payload" to be a plain object.
+[2021-08-22T10:39:10.144] [ERROR] error - Error en login ReferenceError: res is not defined
+[2021-08-22T10:39:53.150] [ERROR] error - Error en login ReferenceError: resp is not defined
+[2021-08-23T10:08:16.750] [ERROR] error - Error en home - Router - ReferenceError: req is not defined
+[2021-08-23T10:22:53.931] [ERROR] error - Error al agregar un producto - Router - function Error() { [native code] }

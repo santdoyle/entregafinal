@@ -1,9 +1,11 @@
 const express = require('express');
 const path = require('path')
+const passport = require('passport')
 const Productos = require('../controllers/controllerProductos.js')
 const routerProductos = express.Router()
 const authenticate = require('../auth/isAuthorized')
 const Loggers = require('../utils/logsConfig')
+const mongoose = require('mongoose')
 
 //Variables globales
 let administrador = true;
@@ -12,13 +14,12 @@ let carritoCompras = []
 const productos = new Productos()
 
 //Listar todos los productos
-routerProductos.get('/listar', authenticate, (request, response, next) => {
-
+routerProductos.get('/listar', async (request, response, next) => {
     try{            
-        
-        const getAll = productos.listarTodos()
-        getAll.then(resp => {
-            response.render('index', {data: resp})
+
+        const getAll = await productos.listarTodos()
+        response.render('index', {
+            data: getAll,
         })
         
     } catch (error) {
@@ -31,26 +32,57 @@ routerProductos.get('/listar', authenticate, (request, response, next) => {
 })
 
 //Listar producto por ID
-routerProductos.get('/listar/:id', authenticate, (request, response) => {
-    if(request.params.id){
-        const item = productos.listarProductosPorID(request.params.id)
+routerProductos.get('/listar/:id', async (request, response) => {
+    try {
+        const idValido = mongoose.Types.ObjectId.isValid(request.params.id);
+        
+        if(idValido === true){
 
-        item.then(resp => {
-            response.render('ficha', {data: resp})
-        })
-    
+            const item = await productos.listarProductosPorID(request.params.id)
+            response.render('ficha', {
+                data: item,
+            })
+        
+        }else{
+            Loggers.logError.error(`Error al listar por id - Router`)
+            response.status(401).json({error: 'El id ingresado no es correcto.'})
+        } 
+    } catch (error) {
+        Loggers.logError.error(`Error al listar por id - Router - ${error}`)
+        response.status(401).json({error: 'Ocurrio un error'})
     }
+    
 })
+
+//Listar por categoria
+routerProductos.get('/categoria/:categoria', async (request, response) =>{
+    try {
+
+        const {categoria} = request.params
+        const getAll = await productos.buscarPorCategoria(categoria)
+        
+        response.render('index', {
+            data: getAll,
+        })
+
+    } catch (error) {
+        Loggers.logError.error(`Error al buscar por categoría - Router - ${error}`)
+        response.status(401).json({error: 'Ocurrio un error.'})
+    }
+    
+})
+
 
 /*Vista publicar producto*/
 routerProductos.get('/publicar', authenticate, (request, response) => {
+
     response.render('publicarProducto')
 })
 
 
 //Endpoint publicar producto
 let id = 0
-routerProductos.post('/agregar', authenticate, (request, response, next) => {
+routerProductos.post('/agregar', (request, response, next) => {
     
     try {
         if(administrador === true){
@@ -68,25 +100,30 @@ routerProductos.post('/agregar', authenticate, (request, response, next) => {
     
     } catch (error) {
         Loggers.logError.error(`Error al agregar producto: ${error}`)
-        error = {msj: `Ha ocurrido un error ${error}`}
+        error = {msj: `Ha ocurrido un error.`}
 
         response.json(error)
     }
     
 })
 
-routerProductos.get('/editar/:id', authenticate, (request, response) => {
-    
-    const item = productos.listarProductosPorID(request.params.id)
+routerProductos.get('/editar/:id', async (request, response) => {
+    try {
+        const item = await productos.listarProductosPorID(request.params.id)
 
-    item.then(resp => {
-        response.render('editar', {data: resp})
-    })
+        response.render('editar', {data: item})
+    } catch (error) {
+        Loggers.logError.error(`Error al editar producto: ${error}`)
+        error = {msj: `Ha ocurrido un error.`}
+
+        response.json(error)
+    }
+    
     
 })
 
 //Actualizar producto por ID
-routerProductos.put('/actualizar/:id', authenticate, async (request, response, next) => {
+routerProductos.put('/actualizar/:id', async (request, response, next) => {
     
     try {
         if(administrador === true){
@@ -105,7 +142,7 @@ routerProductos.put('/actualizar/:id', authenticate, async (request, response, n
     
     } catch (error) {
         Loggers.logError.error(`Error al actualizar producto: ${error}`)
-        error = {msj: `Ha ocurrido un error ${error}`}
+        error = {msj: `Ha ocurrido un error.`}
 
         response.json(error)
     }
@@ -114,7 +151,7 @@ routerProductos.put('/actualizar/:id', authenticate, async (request, response, n
 
 
 //Eliminar producto por ID
-routerProductos.delete('/borrar/:id', authenticate, (request, response, next) => {
+routerProductos.delete('/borrar/:id', (request, response, next) => {
     
     try {
         if(administrador === true){
@@ -136,7 +173,7 @@ routerProductos.delete('/borrar/:id', authenticate, (request, response, next) =>
         
     } catch (error) {
         Loggers.logError.error(`Error al borrar producto: ${error}`)
-        error = {msj: `Ha ocurrido un error ${error}`}
+        error = {msj: `Ha ocurrido un error.`}
 
         response.json(error)
     }
@@ -144,38 +181,36 @@ routerProductos.delete('/borrar/:id', authenticate, (request, response, next) =>
 })
 
 
-routerProductos.get('/buscar/:key', authenticate, (request, response) => {
-    const key = request.params.key
-    console.log(key)
+routerProductos.get('/buscar/:key', async (request, response) => {
+    const {key} = request.params
     try {
-        const item = productos.buscarPor(key)
+        const item = await productos.buscarPor(key)
 
-        item.then(resp => {
-            response.json(resp)
-        })
+        response.json(item)
 
     } catch (error) {
         Loggers.logError.error(`Error al buscar productos: ${error}`)
+        error = {msj: `Ha ocurrido un error.`}
 
+        response.json(error)
     }
 })
 
 
-routerProductos.get('/ordenar/:key', authenticate, (request, response) => {
-    const key = request.params.key
+routerProductos.get('/ordenar/:key', async (request, response) => {
+    const {key} = request.params
 
     try {
-        const item = productos.ordenarPor(key)
+        const item = await productos.ordenarPor(key)
 
-        item.then(resp => {
-            response.json(resp)
-        })
+        response.json(resp)
 
     } catch (error) {
         Loggers.logError.error(`Error al ordenar productos: ${error}`)
+        error = {msj: `Ha ocurrido un error.`}
 
+        response.json(error)
     }
 })
-
 
 module.exports = routerProductos

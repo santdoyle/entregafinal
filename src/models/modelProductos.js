@@ -42,10 +42,13 @@ class modelProductosMongodb{
     async getOne(id){
         try {
             const getById = await models.find({"_id": id})
-
+            
             return getById
+            
         } catch (error) {
-            Loggers.logError.error(`Error al buscar producto por ID: ${error}`)
+            Loggers.logError.error(`Error al buscar producto por ID - model - : ${error}`)
+            
+            throw new Error('Error al obtener el producto' + error)
         }
     }
 
@@ -74,7 +77,6 @@ class modelProductosMongodb{
     }
 
     async deleteOne(id){
-        console.log(id)
         try {
             const borrar = await models.deleteOne({"_id": id})
 
@@ -91,6 +93,20 @@ class modelProductosMongodb{
 
         }
            
+    }
+
+    async getByCategory(category){
+        try {
+            const getAll = await models.find({"categoria": category})
+            
+            if(getAll.length > 0){
+                return getAll
+            }else{
+                return {msj: "No hay productos en esta categoría"}
+            } 
+        } catch (error) {
+            Loggers.logError.error('Error al buscar por categoría - Model - ' + error)
+        }
     }
 
     async searchBy(key){

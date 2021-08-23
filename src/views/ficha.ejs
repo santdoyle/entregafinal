@@ -50,7 +50,11 @@
                                 <dl class="param param-feature">
                                     <dt>Stock</dt>
                                     <dd><%= data[0].stock %></dd>
-                                </dl>  <!-- item-property-hor .// -->                            
+                                </dl>  <!-- item-property-hor .// -->    
+                                <dl class="param param-feature">
+                                  <dt>Categoría</dt>
+                                  <dd><a href="/productos/categoria/<%= data[0].categoria %>"><%= data[0].categoria %></a></dd>
+                                </dl>  <!-- item-property-hor .// -->                        
                                 <hr>
                                 <button class="btn btn-lg btn-outline-primary" id="addCart"> 
                                     <i class="fas fa-shopping-cart"></i> Agrear al carrito <span id="product" style="display: none;"><%= data[0].id %></span>

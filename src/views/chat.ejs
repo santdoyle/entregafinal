@@ -1,0 +1,55 @@
+<%- include('templates/header') %>
+    <%- include('templates/nav') %>
+        <main>
+
+            <section class="py-5 text-center container">
+                <div class="row py-lg-5">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                        <h1 class="fw-light">Chat</h1>
+                        <p>Si tenes alguna duda, comunicate con nosotros.</p>
+                    </div>
+                </div>
+            </section>
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3" id="aside">
+                            <div class="panel-heading">
+                                Usuarios conectados
+                            </div>
+                            <div class="panel-body" id="conectados">
+                                <div id="online" ></div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default col-9" id="panel">
+                            <div class="panel-heading">
+                                Estás conectado como <span id="user"></span> 
+                                Responder a: <span id="receptor" style="font-weight: bold;"></span>
+                                <span id="receptorID" style="display: none"></span>
+                            </div>
+                            
+                                <div class="panel-body">
+                                    <div class="container" id="chat">
+                                    <div class="" id="nota" style="padding: 30px; text-align: center;">
+
+                                        <h5>Elegí un usuario para responder</h5>
+                                    </div>    
+
+                                    </div>
+                                </div>    
+                                <div class="panel-footer">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="mensaje" onfocus="this.value=''" placeholder="Enviar mensaje">
+                                        <button class="btn btn-primary" type="button" id="enviar">Enviar</button>
+
+                                    </div>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <%- include('templates/footer') %>
