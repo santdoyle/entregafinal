@@ -4,6 +4,17 @@ const Loggers = require('../utils/logsConfig')
 
 let id = 0
 class Carrito{
+    static instancia
+    
+    constructor(connection) {
+        if(!!Carrito.instancia){
+            return Carrito.instancia
+        }
+
+        Carrito.instancia = this
+        this.connection = connection
+
+    }
 
     async addProduct(producto, user){
         try {

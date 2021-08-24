@@ -2,6 +2,18 @@ const models = require('./schemas/schemaProductos.js')
 const Loggers = require('../utils/logsConfig')
 
 class modelProductosMongodb{
+    static instancia
+    
+    constructor(connection) {
+        if(!!modelProductosMongodb.instancia){
+            return modelProductosMongodb.instancia
+        }
+
+        modelProductosMongodb.instancia = this
+        this.connection = connection
+
+    }
+
 
     async addOne(prod){
         try {

@@ -2,6 +2,17 @@ const schemaUsers = require('./schemas/schemaUsers')
 const Loggers = require('../utils/logsConfig')
 
 class modelUsers{
+    static instancia
+    
+    constructor(connection) {
+        if(!!modelUsers.instancia){
+            return modelUsers.instancia
+        }
+
+        modelUsers.instancia = this
+        this.connection = connection
+
+    }
 
     getAll(){
 
