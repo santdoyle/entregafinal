@@ -1,12 +1,16 @@
+const {config} = require('../../config')
+
 const nodemailer = require('../utils/mailingConfig').transporter
-const id = "AC76d875d35934820d6f8ee9482eff2e56"
-const token = "fe705754fc9677cb9e1862151787ced2"
+const id = config.TWILOID
+const token = config.TWILOTOKEN
 const client = require('twilio')(id, token)
+
 const Productos = require('../controllers/controllerProductos')
 const controllerUsers = require('../controllers/controllerUsers')
 const Loggers = require('../utils/logsConfig')
 
-const emailAdmin = "carmelo91@ethereal.email"
+
+const emailAdmin = config.EMAILADMIN
 
 class controllerNotificaciones{
 
@@ -28,13 +32,13 @@ class controllerNotificaciones{
     newUserNot(data){
         try {
             const mensaje = `<h1>Nuevo registro: ${data.email}</h1>
-                            <ul>
-                                <li>Nombre: ${data.nombre}</li>
-                                <li>Apellido: ${data.apellido}</li>
-                                <li>Email: ${data.email}</li>
-                                <li>Teléfono: ${data.telefono}</li>
-                                <li>Fecha: ${data.fecha}</li>
-                            </ul>`
+                                <ul>
+                                    <li>Nombre: ${data.nombre}</li>
+                                    <li>Apellido: ${data.apellido}</li>
+                                    <li>Email: ${data.email}</li>
+                                    <li>Teléfono: ${data.telefono}</li>
+                                    <li>Fecha: ${data.fecha}</li>
+                                </ul>`
 
             const options  = {
                 from: emailAdmin,

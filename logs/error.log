@@ -64,3 +64,7 @@
 [2021-08-15T15:09:10.565] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
 [2021-08-15T15:11:06.667] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
 [2021-08-15T15:12:30.948] [ERROR] error - Error al crear ordenValidationError: cantidad: Path `cantidad` is required.
+[2021-08-24T10:06:17.414] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd" (type string) at path "_id" for model "productos"
+[2021-08-24T10:53:23.790] [ERROR] error - Error al conectad DBnull
+[2021-08-24T10:53:38.711] [ERROR] error - Error al conectar DBnull
+[2021-08-24T10:54:03.239] [ERROR] error - Error al conectar DB null

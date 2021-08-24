@@ -6,10 +6,10 @@ const session = require('express-session')
 const passport = require('passport')
 const bodyParser = require('body-parser')
 const MongoStore = require('connect-mongo')
-const advancedOptions = {useNewUrlParser: true, useUnifiedTopology: true}
 const path = require('path')
 const flash = require('connect-flash')
 const Loggers = require('./src/utils/logsConfig')
+
 const {config} = require('./config')
 
 /**
@@ -25,9 +25,11 @@ require('./src/auth/passportLocal')
 App.use(express.json())
 App.use(express.urlencoded({extended: true}))
 App.use(flash());
+
+const advancedOptions = {useNewUrlParser: true, useUnifiedTopology: true}
 App.use(session({
     store: MongoStore.create({
-        mongoUrl: 'mongodb+srv://santdoyle:12345@cluster0.1j600.mongodb.net/myFirstDatabase',
+        mongoUrl: config.URLSAS,
         mongoOptions: advancedOptions
     }),
     secret: "secreto",
@@ -53,12 +55,7 @@ App.set('view engine', 'ejs')
 App.set('views', path.join(__dirname + '/src/views'))
 
 const PORT = config.PORT || 3030
-const modo = 'FORK'
-
-console.log('port', PORT)
-console.log('ENV', config.NODE_ENV)
-console.log('config', config)
-console.log('proces', process.env.PORT)
+const modo = config.MODO
 
 if(modo === 'CLUSTER'){
     

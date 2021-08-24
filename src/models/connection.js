@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
+const {config} = require('../../config')
+const Loggers = require('../utils/logsConfig')
 
-const url = 'mongodb+srv://santdoyle:12345@cluster0.1j600.mongodb.net/myFirstDatabase'
+const url = config.URLSAS
 let rpta =  mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, err => {
-    console.log('Error: ' + err)
+    Loggers.logInfo.info('DB sin error ' + err)
 })
 
-console.log('Connected')
+Loggers.logInfo.info('DB conectada correctamente.')
