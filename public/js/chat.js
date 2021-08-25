@@ -21,6 +21,7 @@ if(window.location.pathname.match(/chat/)){
     const nota = document.getElementById('nota')
     const sidebar = document.getElementById('aside')
     const panel = document.getElementById('panel')
+    const showAdmin = document.getElementById('showAdmin')
 
     if(usuario !== 'admin'){
         sidebar.remove()
@@ -28,6 +29,8 @@ if(window.location.pathname.match(/chat/)){
         panel.classList.add('col-12')
         nota.innerHTML = "<h5>Comunicate con atenciónal cliente</h5>"
         receptor.innerHTML = '<strong>Atención al cliente</strong>'
+    }else{
+        showAdmin.remove()
     }
 
     socket.on('connect', () => {

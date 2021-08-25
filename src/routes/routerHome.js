@@ -6,7 +6,8 @@ const routerHome = express.Router()
 const authorized = require('../auth/isAuthorized')
 
 routerHome.get('/', authorized, (request, response) => {
-    try{            
+    try{
+        console.log(request.headers)
         const productos = new Productos()
         const getAll = productos.listarTodos()
 

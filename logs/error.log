@@ -68,3 +68,7 @@
 [2021-08-24T10:53:23.790] [ERROR] error - Error al conectad DBnull
 [2021-08-24T10:53:38.711] [ERROR] error - Error al conectar DBnull
 [2021-08-24T10:54:03.239] [ERROR] error - Error al conectar DB null
+[2021-08-24T12:41:49.787] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required., paraID: Path `paraID` is required.
+[2021-08-24T12:47:15.066] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-24T12:47:18.520] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-24T21:09:10.694] [ERROR] error - Error en login TypeError: request.status is not a function

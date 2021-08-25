@@ -81,7 +81,7 @@ passport.use('login', new LocalStrategy({
     passReqToCallback: true
 
 }, async (req, email, password, done) => {
-    
+
     try {
         const checkUser = await Users.find({'email': email})
         
@@ -91,15 +91,15 @@ passport.use('login', new LocalStrategy({
             
             if(checkPass === false){
                 Loggers.logWarn.warn(`Intento de login, contraseña incorrecta ${email}`)
-                return done(null, false, req.flash('error', 'La contraseña no es correcta'))
+                return done(null, false, {message: {error: 'La contraseña no es correcta'}})
 
             }else{
                 Loggers.logInfo.info(`Login correcto: ${email}`)
-                return done(null, checkUser[0], req.flash('success', 'Login correcto'))
+                return done(null, checkUser[0], {message: {success: 'Login correcto'}})
 
             }
         }else{
-            return done(null, checkUser[0], req.flash('error', 'El usuario no existe'))
+            return done(null, checkUser[0], {message: {error: 'El usuario no existe'}})
         }
     } catch (error) {
         Loggers.logError.error(`Error en login ${error}`)

@@ -13,30 +13,21 @@
           <div class="row py-lg-5" style="background: #f9f9f9">
             <div class="col-lg-6 col-md-8 mx-auto">
               <h1 class="fw-light">Iniciar sesion</h1>
-              <% if(error.length > 0){ %>
-                <div class="alert alert-danger">
-                  <%- error[0] %>
-                </div>
-              <% }else if(success.length > 0){ %>
-                <div class="alert alert-success">
-                  <%- success[0] %>
-                </div>
-              <% } %>  
-                <form method="POST" action="/setLogin">
-                    <div class="form-group m-2">
-                        <label class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Tu email">
-                    </div>
-                    <div class="form-group m-2">
-                      <label class="form-label">Password</label>
-                      <input type="password" id="password" name="password" class="form-control" placeholder="Tu Password">
-                    </div>
-                    <div class="form-group m-2">
-                        <button type="submit" id="enviar" class="btn btn-primary">Iniciar sesion</button>
-                    </div>
-                    <a href="/crear-cuenta" style="float: right">Crear cuenta</a>
-                </form>
-                
+              <div id="alertas"></div>
+              
+              <div class="form-group m-2">
+                  <label class="form-label">Email</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Tu email">
+              </div>
+              <div class="form-group m-2">
+                <label class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Tu Password">
+              </div>
+              <div class="form-group m-2">
+                  <button type="submit" id="enviar" class="btn btn-primary" onclick="login()">Iniciar sesion</button>
+              </div>
+              <a href="/crear-cuenta" style="float: right">Crear cuenta</a>
+              
             </div>
           </div>
         </section>

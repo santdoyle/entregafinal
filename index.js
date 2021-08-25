@@ -1,5 +1,9 @@
 const express = require('express');
 const App = express()
+const http = require('http').Server(App)
+const io = require('socket.io')(http)
+require('./src/utils/websockets')(io)
+
 const cluster = require('cluster')
 const CPUs = require('os').cpus().length
 const session = require('express-session')
@@ -75,7 +79,7 @@ if(modo === 'CLUSTER'){
     }else {
 
         //Inicio el servidor
-        const server = App.listen(PORT, () => {
+        const server = http.listen(PORT, () => {
             Loggers.logInfo.info(`Servidor funcionando en ${server.address().port}`)
 
         })
@@ -87,7 +91,7 @@ if(modo === 'CLUSTER'){
 }else{
 
     //Puerto 8080 para dev, process.env.PORT para produccion
-    const server = App.listen(PORT, () => {
+    const server = http.listen(PORT, () => {
         Loggers.logInfo.info(`Servidor funcionando en ${server.address().port}`)
 
     })
