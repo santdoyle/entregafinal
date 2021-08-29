@@ -1,7 +1,8 @@
 if(window.location.pathname.match(/chat/)){
+    
+    
 
     const socket = io()
-
     //Muestro los usuarios conectados
     const emisor = document.getElementById('emisor')
     const emisorID = document.getElementById('emisorID')
@@ -29,8 +30,11 @@ if(window.location.pathname.match(/chat/)){
         panel.classList.add('col-12')
         nota.innerHTML = "<h5>Comunicate con atenciónal cliente</h5>"
         receptor.innerHTML = '<strong>Atención al cliente</strong>'
+
     }else{
         showAdmin.remove()
+
+
     }
 
     socket.on('connect', () => {
@@ -42,7 +46,6 @@ if(window.location.pathname.match(/chat/)){
         
         online.innerHTML = 'No hay usuarios conectados'
     })
-
     /**
      *  DevMode
      */
@@ -123,12 +126,10 @@ if(window.location.pathname.match(/chat/)){
 
     //Imprimo la respuesta del server
     socket.on('privado user', data => {
-        console.log(data)
         mostrarMensajes(data)
     })
 
     socket.on('listar mensajes', data => {
-        console.log(data)
         if(data.msj == 'No hay mensajes'){
             chat.innerHTML = `<h5 style="text-align: center">${data.msj}</h5>`
         }else{
@@ -155,3 +156,4 @@ if(window.location.pathname.match(/chat/)){
     }
 
 }
+

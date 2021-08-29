@@ -31,44 +31,37 @@ passport.use('registro', new LocalStrategy({
         if(user.length > 0){
             Loggers.logInfo.info(`El correo registrado ya existe: ${email}`)
 
-            return done(null, false, req.flash('error', 'El correo ya está registrado'))
+            return done(null, false, req.flash('errorRegistro', 'El correo ya está registrado'))
         
         }else{
 
-            const validar = await schema.validateAsync({
-                nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                password: password,
-                email: email,
-                telefono: req.body.telefono,
-                caracteristica: req.body.caracteristica
-            })
-
-            if(validar){
-                const newUser = new Users()
+            const newUser = new Users()
             
-                newUser.nombre = req.body.nombre
-                newUser.apellido = req.body.apellido
-                newUser.email = email
-                newUser.telefono = req.body.telefono
-                newUser.caracteristica = req.body.caracteristica
-                newUser.password = newUser.createHash(password)
-                
-        
+            newUser.nombre = req.body.nombre
+            newUser.apellido = req.body.apellido
+            newUser.email = email
+            newUser.telefono = req.body.telefono
+            newUser.caracteristica = req.body.caracteristica
+            newUser.password = newUser.createHash(password)
+            
+            const validation = newUser.validateSync()
+            
+            if(!validation){
                 await newUser.save()
                 
-                Notificaciones.sendEmail(newUser)
+                Notificaciones.newUserNot(newUser)
                 Loggers.logInfo.info(`Nuevo usuario registrado: ${newUser.email}`)
 
-                return done(null, newUser, req.flash('success', 'Usuario registrado correctamente'))
+                return done(null, newUser, {message: {success: 'Registro correcto. Ingresa tus datos para iniciar sesión.'}})
+            }else{
+                return done(null, false, req.flash('errorRegistro', `${validation.errors.nombre}`))
             }
-            
             
         }
     } catch (error) {
-        Loggers.logError.error(`Error en nuevo registro: ${error.details[0].message}`)
+        Loggers.logError.error(`Error en nuevo registro: ${error}`)
 
-        return error.details[0].message
+        return done(null, false, req.flash('errorRegistro', `Error durante el registro.`))
 
     }
     
@@ -81,8 +74,8 @@ passport.use('login', new LocalStrategy({
     passReqToCallback: true
 
 }, async (req, email, password, done) => {
-
     try {
+
         const checkUser = await Users.find({'email': email})
         
         if(checkUser.length > 0){
@@ -102,7 +95,9 @@ passport.use('login', new LocalStrategy({
             return done(null, checkUser[0], {message: {error: 'El usuario no existe'}})
         }
     } catch (error) {
+        console.log(error)
         Loggers.logError.error(`Error en login ${error}`)
+        return don(null, false, {message: {error: `${error}`}})
     }
 
 }))

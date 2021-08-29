@@ -124,8 +124,6 @@ getProductos().then(resp => {
                                 stock: stock
                             }
 
-                            console.log(id)
-
                             fetch('/productos/actualizar/' + id, {
                                 method: 'PUT',
                                 headers: {

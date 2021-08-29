@@ -5,9 +5,6 @@ const Users = new modelUsers()
 
 class controllerUsers{
 
-    listaDeUsuarios(){
-
-    }
 
     async usuarioPorID(id){
         try {

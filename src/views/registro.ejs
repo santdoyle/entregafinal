@@ -18,6 +18,11 @@
                   <%- error[0] %>
                 </div>
               <% } %>
+              <% if(success.length > 0){ %>
+                <div class="alert alert-success">
+                  <%- success[0] %>
+                </div>
+              <% } %>
                 <form method="POST" action="/setRegistro">
                     <div class="form-group mt-2 row">
                       <div class="col">

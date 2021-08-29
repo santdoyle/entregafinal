@@ -14,7 +14,6 @@ buscar.addEventListener('click', () => {
     })
         .then(resp => resp.json())
         .then(resp => {
-            console.log(resp)
             if(resp.msj){
 
                 producto.innerHTML = `<h4>${resp.msj}</h4>`
@@ -37,5 +36,7 @@ buscar.addEventListener('click', () => {
             }
             
         })
-        .catch(e => console.log(e))
+        .catch(e => {
+            throw new Error({error: 'Error al buscar el producto'})
+        })
 })

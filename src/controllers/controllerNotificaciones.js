@@ -15,6 +15,7 @@ const emailAdmin = config.EMAILADMIN
 class controllerNotificaciones{
 
     sendEmail(options){
+
         try {
             nodemailer.sendMail(options, (err, info) => {
                 if(err){
@@ -81,7 +82,6 @@ class controllerNotificaciones{
                                     <li>Teléfono: ${usuario[0].telefono}</li>
                                 </ul>`
 
-                                console.log('usuario', usuario[0].email)
 
                 const options  = {
                     from: emailAdmin,
@@ -143,7 +143,6 @@ class controllerNotificaciones{
                 to: 'whatsapp:+542284508048'
             })
     
-            console.log(sendSms)
         } catch (error) {
             Loggers.logError.error(`Error al enviar SMSa usuario: ${error}`)
         }

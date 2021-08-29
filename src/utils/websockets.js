@@ -8,17 +8,15 @@ let adminId = ''
 module.exports = function (io){
     //Inicio de Websocket
     io.on('connection', socket => {
-        
+
         //Envío al cliente los usuarios conectados
         socket.on('login', data => {
-            
-            console.log(socket.connected)
-
             const user = {
                 'user': data.email,
                 'socketId': data.userId
             }
             if(data.email === 'admin') adminId = data.userId
+            
             if(socket.connected === true) {
                 //io.sockets.emit('conectados', user)
                 socket.to(adminId).emit('conectados', user)
@@ -43,6 +41,7 @@ module.exports = function (io){
             }
         });
 
+        /*
         //Obtengo los mensajes de db por usuario
         socket.on('get mensajes', async data => {0
             //console.log(data)
@@ -63,8 +62,7 @@ module.exports = function (io){
                Loggers.logError.error('Error en socket.on - Get Mensajes' + error)
             }
             
-            
-        })
+        })*/
 
     })
 }

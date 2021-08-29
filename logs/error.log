@@ -72,3 +72,14 @@
 [2021-08-24T12:47:15.066] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
 [2021-08-24T12:47:18.520] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
 [2021-08-24T21:09:10.694] [ERROR] error - Error en login TypeError: request.status is not a function
+[2021-08-24T23:46:33.802] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd" (type string) at path "_id" for model "productos"
+[2021-08-25T00:41:39.719] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd" (type string) at path "_id" for model "productos"
+[2021-08-26T00:04:54.532] [ERROR] error - Error durante autenticaciónError [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+[2021-08-26T20:26:38.759] [ERROR] error - Error en nuevo registro: MongoError: E11000 duplicate key error collection: myFirstDatabase.users index: telefono_1 dup key: { telefono: 12345 }
+[2021-08-26T20:27:43.612] [ERROR] error - Error al enviar SMS: Error: No recipients defined
+[2021-08-26T21:48:07.049] [ERROR] error - Error al enviar SMS: Error: No recipients defined
+[2021-08-26T22:46:03.404] [ERROR] error - Error al enviar SMS: Error: No recipients defined
+[2021-08-29T03:18:26.657] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-29T03:19:06.617] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd" (type string) at path "_id" for model "productos"
+[2021-08-29T03:39:44.271] [ERROR] error - Error en login Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+[2021-08-29T05:58:16.617] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.

@@ -3,8 +3,10 @@ const passport = require('passport')
 
 routerRegistro.get('/crear-cuenta', (request, response) => {
     const error = request.flash('errorRegistro')
+    const success = request.flash('success')
     response.render('registro', {
-        error
+        error,
+        success
     })
 })
 

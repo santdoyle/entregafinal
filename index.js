@@ -57,6 +57,7 @@ App.use(routerLogin)
 App.use(routerRegistro)
 App.use('/chat', routerChat)
 App.use('/tienda', express.static('public'))
+
 App.set('view engine', 'ejs')
 App.set('views', path.join(__dirname + '/src/views'))
 

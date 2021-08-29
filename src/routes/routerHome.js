@@ -7,16 +7,16 @@ const authorized = require('../auth/isAuthorized')
 
 routerHome.get('/', authorized, (request, response) => {
     try{
-        console.log(request.headers)
+        const token = request.query.token
+        
         const productos = new Productos()
         const getAll = productos.listarTodos()
-
+        
         getAll.then(resp => {
             response.render('index', {data: resp})
         })
         
     } catch (error) {
-        console.log(error)
         error = {msj: `Ha ocurrido un error ${error}`}
         
         response.json(error)
