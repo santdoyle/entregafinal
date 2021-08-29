@@ -7,9 +7,9 @@
     "test": "set NODE_ENV=development&& mocha tests/index.test.js --timeout 10000 --exit",
     "estres-cluster": "artillery quick --count 50 -n 40 http://localhost:3030/ > result_cluster.txt",
     "estres-fork": "artillery quick --count 50 -n 40 http://localhost:3030/ > result_fork.txt",
-    "start": "NODE_ENV=production&& node server.js",
-    "dev": "set NODE_ENV=development&& nodemon server.js",
-    "prod": "NODE_ENV=production&& forever start server.js"
+    "start": "NODE_ENV=production&& node index.js",
+    "dev": "set NODE_ENV=development&& nodemon index.js",
+    "prod": "NODE_ENV=production&& forever start index.js"
   },
   "repository": {
     "type": "git",
