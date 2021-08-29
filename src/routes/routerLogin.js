@@ -22,16 +22,25 @@ routerLogin.post('/setLogin', (request, response, next) => {
             request.logIn(user, function(err) {
                 if (err) return next(err);
                 
-                const token = jwt.sign(user.toJSON(), 'secretKey')
-                response.header('authorization', `Bearer ${token}`)
-                response.json({info, token});
+                const payload = {
+                    nombre: user.nombre,
+                    apellido: user.apellido,
+                    email: user.email,
+                }
+
+                const token = jwt.sign(payload, 'secretKey')
+                response.cookie('token', token, {
+                    secure: false, // set to true if your using https
+                    httpOnly: true,
+                  });
+
+                response.json(info);
             });
         } else {
             response.status(401).json({info: info});
         }
     })(request, response, next);
 })
-
 
 
 routerLogin.get('/cerrar-sesion', (request, response) => Login.logOut(request, response))

@@ -129,6 +129,7 @@ if(window.location.pathname.match(/chat/)){
         mostrarMensajes(data)
     })
 
+    /*
     socket.on('listar mensajes', data => {
         if(data.msj == 'No hay mensajes'){
             chat.innerHTML = `<h5 style="text-align: center">${data.msj}</h5>`
@@ -138,7 +139,7 @@ if(window.location.pathname.match(/chat/)){
             })
         }
         
-    })
+    })*/
 
 
     function mostrarMensajes(data){

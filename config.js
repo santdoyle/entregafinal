@@ -16,7 +16,8 @@ const config = {
     URLSAS: process.env.URLSAS,
     SESIONTIME: process.env.SESIONTIME,
     TWILOTOKEN: process.env.TWILOTOKEN,
-    TWILOID: process.env.TWILOID
+    TWILOID: process.env.TWILOID,
+    JWT_AUTH: process.env.JWT_AUTH
 }
 
 module.exports = {config}

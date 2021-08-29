@@ -19,16 +19,16 @@ const alertas = document.getElementById('alertas')
         })
         
         const json = await send.json()
-        
-        if(json.info.message.error){
+        console.log(json)
+        if(json.message.error){
             alertas.innerHTML = `<div class="alert alert-danger">
-                                    ${json.info.message.error}
+                                    ${json.message.error}
                                 </div>`
             
         }else{
             console.log('llega')
             alertas.innerHTML = `<div class="alert alert-success">
-                                    ${json.info.message.success}. Te estamos redirigiendo.
+                                    ${json.message.success}. Te estamos redirigiendo.
                                 </div>`
             setTimeout(() => {
                 window.location.href = `/`

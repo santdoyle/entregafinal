@@ -8,6 +8,7 @@ const cluster = require('cluster')
 const CPUs = require('os').cpus().length
 const session = require('express-session')
 const passport = require('passport')
+const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const MongoStore = require('connect-mongo')
 const path = require('path')
@@ -46,6 +47,7 @@ App.use(session({
 }))
 App.use(passport.initialize())
 App.use(passport.session())
+App.use(cookieParser())
 
 /**
  * Rutas

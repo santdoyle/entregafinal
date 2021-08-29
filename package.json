@@ -9,7 +9,7 @@
     "estres-fork": "artillery quick --count 50 -n 40 http://localhost:3030/ > result_fork.txt",
     "start": "NODE_ENV=production&& node index.js",
     "dev": "set NODE_ENV=development&& nodemon index.js",
-    "prod": "NODE_ENV=production&& forever start index.js"
+    "prod": "set NODE_ENV=production&& forever start index.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "chai-http": "^4.3.0",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.4.1",
+    "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",

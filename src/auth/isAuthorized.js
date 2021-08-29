@@ -6,16 +6,13 @@ const Loggers = require('../utils/logsConfig')
 
 function isAuthenticated(req, resp, next){
     try {
-        
         if (config.JWT_AUTH) {
+            const tokenCookie = req.cookies.token
 
-            const tokenHeader = req.headers['x-access-token'] || req.headers['authorization']
+            if (tokenCookie) {
 
-            if (tokenHeader) {
-                const token = tokenHeader.split(' ')[1]
-
-                if (!token) return resp.json({ error: 'Necesitas estar logueado.' })
-                jwt.verify(token, 'secretKey', (err, user) => {
+                if (!tokenCookie) return resp.json({ error: 'Necesitas estar logueado.' })
+                jwt.verify(tokenCookie, 'secretKey', (err, user) => {
                     if (err) return resp.json({ error: 'Necesitas estar logueado.' })
                     req.user = user
                     next()

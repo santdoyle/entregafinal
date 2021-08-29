@@ -83,3 +83,4 @@
 [2021-08-29T03:19:06.617] [ERROR] error - Error al buscar producto por ID: CastError: Cast to ObjectId failed for value "asd" (type string) at path "_id" for model "productos"
 [2021-08-29T03:39:44.271] [ERROR] error - Error en login Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
 [2021-08-29T05:58:16.617] [ERROR] error - Error al guardar mensaje - Model - ValidationError: deID: Path `deID` is required.
+[2021-08-29T15:09:02.010] [ERROR] error - Error al conectar el servidor: Error: listen EADDRINUSE: address already in use :::3030
