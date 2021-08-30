@@ -14,7 +14,8 @@ routerLogin.get('/login', (request, response) => {
 
 routerLogin.post('/setLogin', (request, response, next) => {
     passport.authenticate('login', (err, user, info) => {
-
+        console.log('err', err)
+        console.log('info', info)
         if (err) return next(err);
         
         if (user) {
@@ -28,9 +29,12 @@ routerLogin.post('/setLogin', (request, response, next) => {
                     email: user.email,
                 }
 
-                const token = jwt.sign(payload, 'secretKey')
+                const token = jwt.sign(payload, 'secretKey', {
+                    expiresIn: 1000 * 60
+                })
                 response.cookie('token', token, {
-                    secure: false, // set to true if your using https
+                    maxAge: 1000 * 60,
+                    secure: false,
                     httpOnly: true,
                   });
 

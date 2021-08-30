@@ -18,7 +18,7 @@ function isAuthenticated(req, resp, next){
                     next()
                 })
             } else {
-                return resp.json({ error: 'Necesitas estar logueado.' })
+                resp.redirect('/login')
             }
         } else {
             if (req.isAuthenticated()) {
